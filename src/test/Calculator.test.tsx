@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
-import { renderCalculator } from '../test/utils'
+import { renderCalculator } from './utils'
 
 const BUTTON_NAMES: Record<string, string[]> = {
   '+': ['Sumar'],
@@ -59,12 +59,12 @@ describe('Calculadora digital', () => {
     expect(display()).toHaveTextContent('3.1428571')
   })
 
-  it('muestra Error cuando el resultado es negativo o excede el máximo', async () => {
+  it('muestra ERROR cuando el resultado es negativo o excede el máximo', async () => {
     const { user } = renderCalculator()
     await press(user, ['2', '-', '5', '='])
-    expect(display()).toHaveTextContent('Error')
+    expect(display()).toHaveTextContent('ERROR')
     await press(user, ['CA', '9', '9', '9', '9', '9', '9', '9', '9', '9', '+', '1', '='])
-    expect(display()).toHaveTextContent('Error')
+    expect(display()).toHaveTextContent('ERROR')
   })
 
   it('permite cambiar el signo y calcular módulo', async () => {

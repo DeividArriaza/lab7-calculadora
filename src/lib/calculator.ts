@@ -13,11 +13,11 @@ export type CalcState = {
   clearMode: 'clear' | 'all'
 }
 
-const ERROR_LABEL = 'Error'
+const ERROR_LABEL = 'ERROR'
 
 export const initialState: CalcState = {
   display: '0',
-  expression: 'Lista',
+  expression: '',
   storedText: '',
   storedValue: null,
   operator: null,
@@ -164,9 +164,8 @@ const resolveEquals = (state: CalcState): CalcState => {
 }
 
 const clearEntry = (state: CalcState): CalcState => {
-  // First tap clears the active entry, second tap escalates to a full reset.
   if (state.clearMode === 'all') return initialState
-  const expression = state.operator && state.storedText ? `${state.storedText} ${operatorLabel(state.operator)}` : 'Lista'
+  const expression = state.operator && state.storedText ? `${state.storedText} ${operatorLabel(state.operator)}` : ''
   return {
     ...state,
     display: '0',

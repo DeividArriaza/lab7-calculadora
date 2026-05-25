@@ -1,15 +1,18 @@
 import type { ButtonSpec } from '../lib/buttons'
 
 type Props = ButtonSpec & {
-  isActive: boolean
-  isPressed: boolean
-  label: string
+  activeOperator: string | null
+  clearLabel: string
   onPress: (value: string) => void
+  pressedKey: string | null
 }
 
-export function CalcButton ({ ariaLabel, equal, isActive, isPressed, label, onPress, tone, value, wide }: Props) {
-  const classes = ['key', tone, wide ? 'wide' : '', equal ? 'equal' : '', isActive ? 'selected' : '', isPressed ? 'pressed' : '']
-    .filter(Boolean)
-    .join(' ')
-  return <button aria-label={ariaLabel} aria-pressed={isActive} className={classes} data-key={value} onClick={() => onPress(value)} type='button'>{label}</button>
+export function CalcButton (props: Props) {
+  const { activeOperator, ariaLabel, clearLabel, label, onPress, pressedKey, tone, value, wide } = props
+  const text = value === 'clear' ? clearLabel : label
+  const name = value === 'clear' && clearLabel === 'CA' ? 'Borrar todo' : ariaLabel
+  const states = `${value === activeOperator ? ' active' : ''}${value === pressedKey ? ' pressed' : ''}`
+  return (
+    <button aria-label={name} className={`key ${tone}${wide ? ' wide' : ''}${states}`} onClick={() => onPress(value)} type='button'>{text}</button>
+  )
 }
