@@ -1,0 +1,47 @@
+{
+  "name": "lab7-calculadora",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --rulesdir eslint-rules --max-warnings=0",
+    "storybook": "HOME=/tmp storybook dev -p 6006",
+    "build-storybook": "HOME=/tmp storybook build"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "8.6.18",
+    "@storybook/addon-interactions": "8.6.18",
+    "@storybook/react-vite": "8.6.18",
+    "@storybook/test": "8.6.18",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@typescript-eslint/eslint-plugin": "^8.11.0",
+    "@typescript-eslint/parser": "^8.11.0",
+    "@vitejs/plugin-react": "^4.3.3",
+    "eslint": "^8.57.1",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.6.0",
+    "eslint-plugin-react": "^7.37.1",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-storybook": "^0.11.3",
+    "jsdom": "^25.0.1",
+    "storybook": "8.6.18",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10",
+    "vitest": "^2.1.4"
+  }
+}
